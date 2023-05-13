@@ -1,0 +1,14 @@
+axes.grid: True
+axes.grid.axis : y
+grid.color: 758D99 
+grid.alpha: 0.6
+axes.spines.left: False
+axes.spines.right: False
+axes.spines.bottom: True
+axes.spines.top: False
+ytick.labelsize : 11
+xtick.labelsize : 11
+ytick.left : False
+figure.figsize: 8,4
+lines.linewidth: 3
+

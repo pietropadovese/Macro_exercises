@@ -1,0 +1,11 @@
+FRED API: 3c333fd92c7d3df79f55af2ee72f13bf
+
+Real Personal Consumption Expenditures: 
+PCECC96
+
+Real GDP: 
+GDPC1
+
+Real Gross Private Domestic Investment: 
+GPDIC1
+
