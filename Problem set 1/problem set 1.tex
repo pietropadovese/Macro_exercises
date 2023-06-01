@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+
+\author{Pietro Padovese}
+
+\usepackage{graphicx}
+\graphicspath{ {image/} }
+
+\usepackage{amsmath}
+
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+\title{Consumption with different generations}
+
+\begin{document}
+
+\maketitle
+
+\myparagraph{Data of the Problem}
+\begin{itemize}
+\item Time horizon = 2 periods.
+\item Individuals can only work in period 1.
+\item $L$ = proportion of the day spent working, for an income equal to $wL$.
+\item $C_i$ = consumption in period $i$.
+\item Utility function: $U = \ln C_1 + \ln C_2 + \ln (1 - L)$.
+\end{itemize}
+\myparagraph{Point (a)}
+\textit{If the rate of interest on saving is $R$, write down the individual's budget constrains for both periods and derive the intertemporal budget constraint}. \\\\
+\textbf{Solution}:
+The budget constrain in the first period imposes that the consumption and the savings must be equal to the total income earned during the period: 
+\begin{equation}
+C_1 + S_1 = wL
+\end{equation}
+For the second period, given that there is no future for the individuals it does not make sense for them to save. They can spend all of their income for period 2, given by the amount they have saved in period 1 plus the accrued interests, in consumption: 
+\begin{equation}
+C_2 = (1 + r)S_1
+\end{equation}
+We can then rewrite $S_1$ in terms of income minus consumption to derive the intertemporal budget constraint:
+\begin{align*}
+C_2 &= (1 + r)(wL - C_1) \\
+C_1 & + \frac{C_2}{1 +r} = wL
+\end{align*}
+
+\myparagraph{Point (b)}
+\textit{Solve for optimal consumption each period and the optimal work effort. Comment on what you find.}
+\myparagraph{Solution:}
+We can write the equation we found for $C_2$ in the utility function in order to solve an uncostrained optimization problem. 
+\begin{equation}
+U = \ln C_1 + \ln (1 + r) + \ln (wL - C_1) + \ln (1 - L)
+\end{equation}
+Where we also applied product property of logarithms.
+Now we can take the derivatives with respect to $C_1$ and $L$ and solve in order to find the optimal
+levels: 
+\begin{align*}
+\frac{\partial U}{\partial C1} &= \frac{1}{C_1} - \frac{1}{wL - C_1} \\
+\frac{\partial U}{\partial L} &= \frac{w}{wL - C_1} - \frac{1}{1 - L}
+\end{align*} 
+Solving the derivative w.r.t. $C_1$ we find that $C_1 = \frac{wL}{2}$. Plugging this results into the derivate w.r.t. to $L$ we find that:\\
+\begin{align*}
+ L^{*} &= \frac{2}{3}\\
+C_1^{*} &= \frac{1}{3}w \\
+C_2^{*} &= \frac{1}{3}w(1+r)
+\end{align*}\\
+This result tells us that the optimal level of labor provided by individuals does not depend on wages but rather is a constant, and that income is spent equally between the first and second periods. This result is a consequence of the utility functions of individuals giving equal value to consumption in the first period, consumption in the second period and the amount of leisure time. Regardless of how much he earns the consumer will always be satisfied in splitting his resources equally between leisure and consumption in the two periods. 
+
+\myparagraph{Point (c)}
+\textit{The government introduces a fixed pension paid to individuals in the second period of their lived, funded by a "lump sum tax" paid by those who work. Rewrite the intertemporal budget constaint and comment on the effects both for the young and the old.}
+\myparagraph{Solution:}
+The budget constraints now need to reflect the tax paid in period 1 and the subsidy received in period to 2: 
+\begin{align*}
+C_1 &+ S_1 = wL - T \\
+C_2 &= (1 + r)S_1 + T
+\end{align*}
+The new intertemporal budget constraints can be rewritten as: 
+\begin{equation}
+C_1 + \frac{C_2}{1 + r} = wL - T + \frac{T}{1+r}
+\end{equation}
+This time in order to find optimality levels, given that the function for $C_2$ is slightly more complicate, we can solve the optimization probelm with the Lagrangian method:
+\begin{equation}
+F = \ln C_1 + \ln C_2 + \ln(1 - L) - \lambda[(1 + r)(wL - C_1 - T) + T - C_2]
+\end{equation}
+Taking first order derivatives: 
+\begin{align*}
+\\
+\frac{\partial F}{\partial C_1} &= \frac{1}{C_1} + \lambda(1+r) = 0 \\\\
+\frac{\partial F}{\partial C_2} &= \frac{1}{C_2} + \lambda = 0\\\\
+\frac{\partial F}{\partial L}  &= - \frac{1}{1 - L} - \lambda(1 + r)w = 0
+\\
+\end{align*}
+At this point we can see that $\lambda = -\frac{1}{C_2}$. Substituting this value of $\lambda$ into the derivatives w.r.t. to $C_1$ and $L$, we obtain the results: 
+\begin{align}
+C_1 &= \frac{C_2}{1 + r}\\
+L &= 1 - \frac{C_2}{(1+r)(w)}
+\end{align}
+Putting this values into the budget constraint: 
+\begin{align*}
+C_2 &= (1 + r)(w) - (1 + r)(w)\frac{C_2}{(1 + r)(w)} - (1 + r)\frac{C_2}{1 + r} - T(1 + r) + T\\
+C_2 &= (1 + r)(w) - C_2 - C_2 - Tr \\
+3C_2 &= (1 + r)w - Tr \\
+C_2^{*} &= \frac{1}{3}((1 + r)w - Tr)
+\end{align*}
+We can now solve (6) and (7).
+\begin{align*}
+\\
+C_1^{*} &= \frac{(1 + r)w}{3(1+ r)} - \frac{Tr}{3(1 + r)}\\
+&= \frac{1}{3}(w - \frac{Tr}{1 + r})\\\\
+L^{*} &= 1 - \left[ \frac{(1 + r)(w)}{3(1 + r)(w)} - \frac{Tr}{3(1 + r)(w)} \right] \\
+&= \frac{2}{3} + \frac{1}{3} \frac{Tr}{(1 + r)(w)}
+\end{align*}
+With regard to work, young people in this situation are satisfied in working two-thirds of their time, as in the case where there were no taxes, plus a component that depends on the ratio of Tr to w.\\ \\
+Tr represents the loss of income that workers have in the intertemporal transfer of T. In that although they pay T in period 1 and receive T in period 2, since they cannot invest T in period 1, they cannot accumulate interest on that amount. \\\\
+Therefore, the quantity of increased labor depends on the level of their wages relative to this fixed quantity. The higher their wage, the less labor time they will have to spend to repay this Tr. \\\\
+As for consumption these decrease in both periods to compensate for the decrease in income given by Tr. Confirming then what was noted in the previous point, by placing equal utility on leisure and consumption in the two periods, to make up for the reduced income the agent decides both to work more and consume less. 
+\myparagraph{Point (d)}
+\textit{The pension is now funded by an income tax. Will the behaviour of the young change in the case where R = 0?}
+\myparagraph{Solution}
+Budget constraints:
+\begin{align*}
+C_1& + S_1 = wL(1 - \tau)\\
+C_2& = (1 + r)S_1 + \tau wL\\
+&= (1 + r)(wL(1 - \tau) - C_1) + \tau wL
+\end{align*}
+Setting the Lagrangian: 
+\begin{equation*}
+F = \ln(C_1) + \ln(C_2) + \ln(1-L) - \lambda[(1+r)(wL(1 - \tau) - C_1) + \tau wL - C_2]
+\end{equation*}
+The F.O.C.s now are: 
+\begin{align*}
+\frac{\partial F}{\partial C_1} &= \frac{1}{C_1} + \lambda(1+r) = 0 \\\\
+\frac{\partial F}{\partial C_2} &= \frac{1}{C_2} + \lambda = 0\\\\
+\frac{\partial F}{\partial L}  &= - \frac{1}{1 - L} - \lambda[w(1-\tau)(1+r) + \tau w]
+\end{align*}
+Using $C_2 = -\frac{1}{\lambda}$, we can write: 
+\begin{align*}
+C_1 &= \frac{C_2}{(1 + r)}\\
+L &= 1 - \frac{C_2}{w(1 + r - \tau r)}
+\end{align*}
+Substing into the budget constraint:
+\begin{align*}
+C_2 &= w(1-\tau)(1+r) - \frac{w(1-\tau)(1-r)C_2}{w(1- r - r\tau)} - \frac{C_2(1+r)}{(1+r)} + \tau w - \frac{C_2\tau w}{w(1- r - r\tau)}\\
+C_2^{*} &= \frac{1}{3}(w(1+r) - \tau wr)
+\end{align*}
+Solving for $C_1$ and $L$: 
+\begin{align*}
+C_1^{*} &= \frac{1}{3}(w - \frac{\tau wr}{(1+r)})\\\\
+L^{*} &= 1 - [ \frac{w(1+r) - \tau wr}{3(w(1 + r) - \tau wr)} ]\\
+&= \frac{2}{3}
+\end{align*}
+The most interesting change in this situation is the amount of work offered by young people. With the introduction of a distortionary tax, rather than as a lump-sum, optimal work has become a constant again, as it was when there were no taxes.\\\\ This result stems from the fact that now, the level of taxes payable in period 1 and the pension received in period 2 is determined by work choice. Whereas in point c, the variable T corresponding to the tax did not appear in the first order condition of the job, in this case $\tau w$ is present instead.\\\\ This means that if in point c the variable to be paid was deterministic, and thus the agent had to add work to compensate for this change, in this case consideration of the taxes to be paid is already included in the optimal amount of labour choice. Therefore in the case where r is equal to zero, L is not affected.\\\\
+With regard to consumption, on the other hand, there are two observations to be made: 
+\begin{itemize} 
+\item $\tau wr$ i.e., the decrease in income due to the intertemporal transfer of income is equal to zero, so what is paid as taxes in period 1 is fully regained as a pension. Therefore, since there is no decrease in income, consumption can be higher in both periods;
+\item young and old consume the same amount of goods, since the old have not benefited from the interest accumulated on their savings.
+\end{itemize}
+
+\end{document}
